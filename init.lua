@@ -28,6 +28,7 @@ require("lazy").setup({
   { "junegunn/fzf", build = "./install --all" },
   { "junegunn/fzf.vim" },
   { "kaplanz/retrail.nvim", opts = {}},
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
 
 -- Shfmt
