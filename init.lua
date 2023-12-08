@@ -26,7 +26,8 @@ require("lazy").setup({
   { "tpope/vim-surround" }, -- cs<char-to-replace><char-to-replace-it-with>. So cs'" when the cursor is surrounded by ' will surround the word with ".
   { "tpope/vim-commentary" }, -- gcc to comment toggle. gc in visual mode works too.
   { "junegunn/fzf", build = "./install --all" },
-  { "junegunn/fzf.vim" }, 
+  { "junegunn/fzf.vim" },
+  { "kaplanz/retrail.nvim", opts = {}},
 })
 
 -- Shfmt
