@@ -16,25 +16,27 @@ call plug#begin("~/.vim/plugged")
 Plug 'sheerun/vim-polyglot'
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'jeffkreeftmeijer/vim-nightfall'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'kaplanz/retrail.nvim'
+Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 call plug#end()
 
-" Use Dim as the default color scheme
-colorscheme dim
+colorscheme nightfly
 
-" Turn on line numbers
+" Formatting
 set number
-
-" Install Coc extensions for Elixir, Ruby, Rust, Typescript and VimL
-let g:coc_global_extensions = ['coc-elixir', 'coc-solargraph', 'coc-rls', 'coc-tsserver', 'coc-vimlsp']
-
-" Automatically format Elixir, Rust and Typescript files on save
-let g:coc_user_config = {"coc.preferences.formatOnSaveFiletypes": ["elixir", "rust", "typescript"]}
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Use <cr> to select the first completion
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+lua require'retrail'.setup {}
