@@ -29,7 +29,18 @@ require("lazy").setup({
   { "junegunn/fzf.vim" },
   { "kaplanz/retrail.nvim", opts = {}},
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "sheerun/vim-polyglot" },
+  { "williamboman/mason.nvim", lazy = false},
+  { "williamboman/mason-lspconfig.nvim", lazy = false},
+  { "neovim/nvim-lspconfig", lazy = false },
 })
+
+-- Mason
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+-- nvim-lspconfig
+require("lspconfig")["terraformls"].setup({})
 
 -- Shfmt
 vim.g.shfmt_fmt_on_save = 1
