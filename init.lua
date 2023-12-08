@@ -1,3 +1,12 @@
+-- General settings
+vim.opt.number = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
+vim.opt.clipboard:append("unnamedplus") -- Very important.
+
+-- Lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,4 +20,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup({
+  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
+  { "z0mbix/vim-shfmt", ft = "sh" }
+})
+
+-- Shfmt
+vim.g.shfmt_fmt_on_save = 1
+
+-- Set colorscheme
+vim.cmd [[colorscheme nightfly]]
