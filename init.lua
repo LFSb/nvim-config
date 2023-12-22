@@ -115,6 +115,13 @@ require('lspconfig')['elixirls'].setup {
   cmd = { "/Users/leebeenen/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" };
 }
 
+require('lspconfig')['azure_pipelines_ls'].setup {
+  capabilities = capabilities
+}
+
+require('lspconfig')['yamlls'].setup {
+  capabilities = capabilities
+}
 -- lspconfig
 vim.api.nvim_set_keymap('n', 'gl', ':lua vim.diagnostic.open_float()<CR>', {}) -- Display whatever error/warning the lsp has deemed appropriate.
 
