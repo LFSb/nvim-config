@@ -135,3 +135,6 @@ vim.g.shfmt_extra_args = '-i 2'
 
 -- Set colorscheme
 vim.cmd [[colorscheme nightfly]]
+
+-- Biome
+require'lspconfig'.biome.setup{}
